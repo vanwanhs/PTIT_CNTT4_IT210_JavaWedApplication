@@ -1,0 +1,34 @@
+Bài 1:
+Đoạn code sai:
+public RechargeService(){
+this.gateway = new InternalPaymentGateway();
+}
+Giải thích: Nếu sau này muốn đổi sang ExternalPaymentGateway hay gateway khác, bạn phải sửacode của RechargeService
+Không thể thay đổi implementation dễ dàng
+Bài 2:
+Vì là singleton nghĩa là chỉ có một đối tượng được tạo ra nên mỗi lần gọi đều trả vềmột đội tương dẫn đến bị cộng nhầm
+Bài 3:
+Input:
+-UserId: mã khách hàng
+-foodId: mã món ăn
+-quantity: số lượng
+Output:
+-success: true/ false
+-message: thông báo kết quả
+-remainingBalance: số dự sau khi đặt đồ ăn
+Luồng xử lý
+1.Kiểm tra tồn khoa.Nếu stock < số lương gọi -> Lỗi
+2.Kiểm tra số dư tài khoảna.Nếu balance < Tổng tiền đơn hàng -> Lỗi
+3.Nếu đủ số lượng và đủ tiền:
+a.Trừ tiền người dùng
+b.Giảm số lượng đồ ăn trong kho
+4.Trả về kết quả người dùng
+Bài 4:
+Tiêu chí        |           Contructor Injection                |     Field Injection
+Độ an toàn      |  Đảm bảo tất dependency được inject, compile       có thể null nếu Spring không inject
+                   - time check
+
+Testability     | Dễ mock/test vì có thể tạoinstance bằng       |   Khó   test,   cần   reflection hoặc
+                  constructor                                       Spring context
+
+Maintenanc      | Rõ ràng, ai phụ thuộc vào ai                  | Không   thấy   trực   tiếp dependency
