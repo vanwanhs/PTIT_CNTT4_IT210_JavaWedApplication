@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>EDU PATH</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f6fa;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #f1c40f;
+    }
+
+    .container {
+      width: 85%;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    table th {
+      background: #3498db;
+      color: white;
+      padding: 10px;
+    }
+
+    table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table tr:hover {
+      background: #f2f2f2;
+    }
+
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #219150;
+    }
+
+    .btn-delete {
+      background: #e74c3c;
+    }
+
+    .btn-delete:hover {
+      background: #c0392b;
+    }
+
+    input, select {
+      padding: 6px;
+      margin: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #2c3e50;
+      color: white;
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<header>
+  <h1>🎓 EDU PATH</h1>
+  <p>Learn English - Build Your Future</p>
+</header>
+
+<nav>
+  <a th:href="@{/course/list}">Danh sách khóa học</a>
+  <a href="#">Đăng ký tư vấn</a>
+</nav>
+
+<div class="container">
+  <div layout:fragment="content"></div>
+</div>
+
+<footer>
+  <p>PTIT Spring MVC © 2026</p>
+</footer>
+
+</body>
+</html>

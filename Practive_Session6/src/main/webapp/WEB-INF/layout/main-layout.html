@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>EDU PATH</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+        }
+
+        header{
+            background:#2c3e50;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        nav{
+            background:#34495e;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:0 15px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:#f1c40f;
+        }
+
+        .container{
+            width:85%;
+            margin:20px auto;
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        footer{
+            text-align:center;
+            padding:15px;
+            background:#2c3e50;
+            color:white;
+            margin-top:20px;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1> EDU PATH</h1>
+    <p>Learn English - Build Your Future</p>
+</header>
+
+<nav>
+    <a th:href="@{/course/list}">Danh sách khóa học</a>
+    <a href="#">Đăng ký tư vấn</a>
+</nav>
+
+<div class="container">
+    <div layout:fragment="content"></div>
+</div>
+
+<footer>
+    <p>PTIT Spring MVC</p>
+</footer>
+
+</body>
+</html>

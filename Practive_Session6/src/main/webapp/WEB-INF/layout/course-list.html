@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-layout}">
+
+<div layout:fragment="content">
+
+  <h2>Danh sách khóa học</h2>
+
+  <form method="get" th:action="@{/course/list}">
+    Level:
+    <select name="level">
+      <option value="">All</option>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+
+    Max Fee:
+    <input type="number" name="maxFee">
+
+    <button type="submit">Search</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Fee</th>
+      <th>Action</th>
+    </tr>
+
+    <tr th:each="c : ${courses}">
+      <td th:text="${c.code}"></td>
+      <td>
+        <a th:href="@{/course/detail/{code}(code=${c.code})}"
+           th:text="${c.name}"></a>
+      </td>
+      <td th:text="${#numbers.formatDecimal(c.fee,0,'COMMA',0,'POINT')} + ' VNĐ'"></td>
+      <td>
+        <a th:href="@{/course/edit/{code}(code=${c.code})}">Edit</a>
+
+        <form th:action="@{/course/delete/{code}(code=${c.code})}"
+              method="post" style="display:inline">
+          <button class="btn-delete">Delete</button>
+        </form>
+
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+</html>
